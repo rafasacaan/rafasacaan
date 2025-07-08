@@ -1,0 +1,7 @@
+{{ $email := .email | default .Site.Params.author.email }}
+{{ $size := .size | default "80" }}
+{{ $default := .default | default "identicon" }}
+{{ if $email }}
+  {{ $gravatarURL := printf "https://www.gravatar.com/avatar/%s?s=%s&d=%s" (md5 $email) $size $default }}
+  <img src="{{ $gravatarURL }}" alt="Avatar" class="gravatar" width="{{ $size }}" height="{{ $size }}">
+{{ end }}

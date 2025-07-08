@@ -1,0 +1,22 @@
+baseURL = "https://www.rafasacaan.com/"
+languageCode = "en-us"
+title = "rafasacaan"
+theme = "dario"
+
+[params]
+  author = "rafa sacaan"
+  description = "Mi blog"
+  
+  [author]
+    email = "rafasacaan@gmail.com"
+  
+  [params.homeInfoParams]
+    #Title = "rafa sacaan"
+    Content = """Hola, soy Rafa. Trabajo como data scientist y 
+    consultor ayudando a personas y empresas a tomar mejores decisiones 
+    usando datos y tecnología.
+    \nMe gusta combinar metodología con intuición y creatividad para encontrar soluciones que realmente funcionen. 
+    \nPara mí, lo más importante es crear algo que tenga un impacto real y se mantenga en el tiempo.
+    """
+    
+    Description = "Mi blog."

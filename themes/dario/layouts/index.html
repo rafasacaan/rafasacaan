@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+{{ partial "head.html" . }}
+
+<body>
+    {{ partial "header.html" . }}
+
+    <main class="content-wrapper">
+        
+        {{ $email := "rafasacaan@gmail.com" }}
+        {{ $gravatarURL := printf "https://www.gravatar.com/avatar/%s?s=120&d=identicon" (md5 $email) }}
+        <img src="{{ $gravatarURL }}" alt="Avatar" class="gravatar" style="border-radius: 50%; width: 120px; height: 120px;">
+
+        <article class="content-container">
+            {{- with site.Params.homeInfoParams }}
+            <section>
+                <h1 class="smaller">{{ .Title | markdownify }}</h1>
+                <p>{{ .Content | markdownify }}</p>
+                <p>{{ .SubContent | markdownify }}</p>
+            </section>
+            {{- end }}
+
+            <section>
+                <h2>Posts</h2>
+                <ul>
+                    {{ range .Site.RegularPages }}
+                    <li>
+                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </section>
+
+        {{ partial "footer.html" . }}
+        </article>
+    </main>
+</body>
+
+</html>

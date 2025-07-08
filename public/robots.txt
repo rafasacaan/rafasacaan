@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://log.birki.io/sitemap.xml
