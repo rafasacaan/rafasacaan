@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on rafasacaan</title>
-    <link>https://rafasacaan.github.io/rafasacaan/posts/</link>
+    <link>https://rafasacaan.com/posts/</link>
     <description>Recent content in Posts on rafasacaan</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 08 Jul 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://rafasacaan.github.io/rafasacaan/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://rafasacaan.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hola!</title>
-      <link>https://rafasacaan.github.io/rafasacaan/posts/hola/hola/</link>
+      <link>https://rafasacaan.com/posts/hola/hola/</link>
       <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://rafasacaan.github.io/rafasacaan/posts/hola/hola/</guid>
+      <guid>https://rafasacaan.com/posts/hola/hola/</guid>
       <description>&lt;p&gt;Nos vemos!&lt;/p&gt;</description>
     </item>
   </channel>
