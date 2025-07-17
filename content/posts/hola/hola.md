@@ -1,5 +1,5 @@
 ---
-title: "recordatorio en tiempos de cólera"
+title: "Recordatorio en tiempos de cólera"
 author: ["yo"]
 description: "primera nota"
 date: 2025-07-08T00:00:00-00:00 # date of creation
