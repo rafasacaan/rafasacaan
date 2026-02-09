@@ -1,11 +1,12 @@
 baseURL = "https://rafasacaan.com/"
 languageCode = "en-us"
-title = "rafasacaan"
+title = "Rafael Sacaan - Consultor ML/AI | Machine Learning y Data Science"
 theme = "dario"
 
-[params]
-  author = "rafa sacaan"
-  description = "Mi blog"
+[params]  
+  description = "Rafael Sacaan, consultor especializado en Machine Learning y AI. Ayudo a empresas a tomar mejores decisiones usando datos y tecnología."
+  author = "Rafael Sacaan"
+  keywords = ["Rafael Sacaan", "consultor ML", "machine learning", "inteligencia artificial", "data science", "AI consultant Chile", "munra.cl", "munra"]
   
   [author]
     email = "rafasacaan@gmail.com"
