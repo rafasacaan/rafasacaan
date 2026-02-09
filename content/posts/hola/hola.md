@@ -1,13 +1,9 @@
 ---
-title: "Recordatorio en tiempos de cólera"
+title: "Recordatorio recogido en alguna parte de internet"
 author: ["yo"]
 description: "primera nota"
 date: 2025-10-21T00:00:00-00:00 # date of creation
 ---
-
-nunca carecer de **intención**
-
-nunca carecer de **intención**
 
 nunca carecer de **intención**
 
