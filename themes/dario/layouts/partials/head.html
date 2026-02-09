@@ -1,12 +1,17 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ .Title }}</title>
+    <title>{{ .Site.Title }}</title>
+    
+    <meta name="description" content="{{ .Site.Params.description }}">
+    <meta name="author" content="{{ .Site.Params.author }}">
+    <meta name="keywords" content="{{ delimit .Site.Params.keywords ", " }}">
+    <meta property="og:title" content="{{ .Site.Title }}">
+    <meta property="og:description" content="{{ .Site.Params.description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rafasacaan.com">
     
     {{- partial "opengraph.html" . -}}
-
-    <meta name="author" content="{{ .Site.Params.author }}" />
-    <meta name="description" content="{{ .Site.Params.description }}" />
 
     <link rel="preload" href="{{ "fonts/Newsreader.woff2" | relURL }}" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="{{ "fonts/Newsreader-italic.woff2" | relURL }}" as="font" type="font/woff2" crossorigin />
