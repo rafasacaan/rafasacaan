@@ -12,12 +12,16 @@ theme = "dario"
   
   [params.homeInfoParams]
     #Title = "rafa sacaan"
-    Content = """Hola, soy Rafa. Trabajo como data scientist y 
-    consultor ayudando a personas y empresas a tomar mejores decisiones 
+    Content = """Hola, soy Rafa. Trabajo como consultor
+    usando herramientas de ML y AI para ayudar a personas y empresas a tomar mejores decisiones 
     usando datos y tecnología.
     \nMe gusta combinar metodología con intuición y creatividad para encontrar soluciones que realmente funcionen. 
-    \nPara mí, lo más importante es crear algo que tenga un impacto real y se mantenga en el tiempo.
+    \nPara mí, lo más importante es crear algo que tenga un impacto real y se mantenga en el tiempo. 
+    \nMás importante aún, es entendernos e interactuar en la dimensión humana, que sostiene toda actividad que nos propongamos.
+    \nTambién me gusta perderme grabando música de las formas más raras posibles. Puedes ver mi micro estudio musical llamado [munra.cl](https://www.munra.cl)
     \nContáctame si quieres en [rafasacaan@gmail.com](mailto:rafasacaan@gmail.com)
+    
+    
     """
     
     Description = "Mi blog."
