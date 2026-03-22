@@ -1,19 +1,19 @@
 ---
-title: "De idea a caso"
+title: "Cómo aterrizar la AI sin morir en el intento"
 author: ["yo"]
-description: "ideación"
+description: "Convertirse en un ratón de biblioteca sobre el problema que quieres resolver es la clave. _Back to basics_."
 date: 2026-03-22T00:00:00-00:00
 ---
 
 La mayoría parte desde el lugar equivocado. Se obsesiona con “tener una startup” o encontrar “una gran idea”, cuando en realidad todo suele empezar mucho más abajo: en una tarea concreta que alguien ya está resolviendo —y, en muchos casos, pagando por resolver.
 
-Cuando cambias ese punto de partida, el resto empieza a tomar forma con más claridad.
+Con esto como fundamento, el resto empieza a tomar forma un poco sólo.
 
 Hay tres movimientos que se van entrelazando:
 
 1. Encontrar una tarea relevante (no necesariamente compleja!)
 2. Hacerla funcionar de verdad
-3. Véndela (aka ganarse el derecho a que alguien la use)
+3. Véndela! (aka generar la confianza a que alguien la use)
 
 ## 1. Encuentra una tarea
 
