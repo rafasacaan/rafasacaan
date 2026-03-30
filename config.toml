@@ -14,11 +14,14 @@ theme = "dario"
   [params.homeInfoParams]
     #Title = "rafa sacaan"
     Content = """Hola, soy Rafa. 
+    \nMe gusta construir cosas que antes no estaban ahí. Me gusta el ejercicio de montar ladrillos y pegarlos. Y también me gusta elegir el color de los ladrillos y la forma en la que los voy a organizar.
+    También me gusta pensar para qué estoy haciendo esto con ladrillos, y quien lo va a usar. Me gusta hablar con esas personas, aprender de ellas, y abrirme... así puedo crear algo que no es mío, sino que producto
+    de una visión que pertence a más que una persona. Y claro, haber tenido la oportunidad de dejar algo de mí en eso. En los ladrillos, y en los otros.
     \nTrabajo como consultor
-    usando herramientas de ML y AI para ayudar a personas y empresas a tomar mejores decisiones 
+    usando herramientas de ML y AI para ayudar a personas a tomar mejores decisiones 
     mediante datos y tecnología.
     \nMe gusta combinar metodología, intuición y creatividad para encontrar soluciones que traigan algún impacto. 
-    \nPara mí, lo más importante es encontrarnos en un sentido de porqué hacemos algo. Más aun, es encontrarnos en la dimensión humana, que es donde se cocinan las cosas.
+    \nPara mí, lo más importante es encontrarnos en el sentido de porqué hacemos algo. Más aún, es encontrarnos en la interacción y el pin-poneo, que es donde se cocinan las cosas. Hoy a esto le llaman co-crear.
     \nTambién me gusta perderme grabando música de las formas más raras posibles. Puedes ver mi micro estudio musical llamado MUNRA.
     \nContáctame si quieres en [rafasacaan@gmail.com](mailto:rafasacaan@gmail.com)
     \nEncuentra mi micro estudio en [munra.cl](https://www.munra.cl)
