@@ -59,6 +59,46 @@
     font-weight: 200;
     letter-spacing: 0.08em;
     color: var(--ink);
+    position: relative;
+    cursor: default;
+  }
+
+  header .name::after {
+    content: 'hola!';
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 10px);
+    transform: translateX(-50%) translateY(4px);
+    background: var(--ink);
+    color: var(--bg);
+    font-family: 'Lora', serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    padding: 5px 10px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s, transform 0.15s;
+  }
+
+  header .name::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 4px);
+    transform: translateX(-50%) translateY(4px);
+    border: 5px solid transparent;
+    border-bottom-color: var(--ink);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s, transform 0.15s;
+  }
+
+  header .name:hover::after,
+  header .name:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
   header .meta {
