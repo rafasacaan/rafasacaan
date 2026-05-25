@@ -198,7 +198,7 @@
   }
 
   .post-card:hover {
-    opacity: 0.6;
+    opacity: 1;
   }
 
   .post-card-label {
@@ -447,6 +447,22 @@
     overlay.classList.remove('active');
     document.body.style.overflow = '';
   }
+  const fluorescentColors = ['#39ff14','#ff6ec7','#00ffff','#ffff00','#ff4500','#bf5fff','#ff073a','#00ff9f'];
+
+  document.querySelectorAll('.post-card').forEach(function(card) {
+    card.addEventListener('mouseenter', function() {
+      const color = fluorescentColors[Math.floor(Math.random() * fluorescentColors.length)];
+      card.querySelectorAll('.post-card-label, .post-card-title, .post-card-date, .post-card-read').forEach(function(el) {
+        el.style.color = color;
+      });
+    });
+    card.addEventListener('mouseleave', function() {
+      card.querySelectorAll('.post-card-label, .post-card-title, .post-card-date, .post-card-read').forEach(function(el) {
+        el.style.color = '';
+      });
+    });
+  });
+
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       document.querySelectorAll('.modal-overlay.active').forEach(closePost);
