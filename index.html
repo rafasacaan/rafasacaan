@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>rafa</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Raleway:wght@200&display=swap');
+
+  :root {
+    --bg: #e8e6e1;
+    --ink: #1a1a1a;
+    --accent-red: #c0392b;
+    --accent-blue: #2563a8;
+    --accent-green: #2d6a4f;
+    --accent-yellow: #d4a017;
+    --accent-purple: #7c3aed;
+    --accent-fuchsia: #d946a8;
+    --accent-lime: #84cc16;
+    --accent-orange: #c2410c;
+    --muted: #888;
+    --col-gap: 20px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .grid {
+    flex: 1;
+  }
+
+  header {
+    padding: 32px 32px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  header .name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+  }
+
+  header .meta {
+    color: var(--muted);
+    font-size: 11px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+  }
+
+  .col {
+    padding: 24px 20px;
+    min-height: 100vh;
+    border-right: 0.5px solid #d0d0d0;
+  }
+
+  .col:last-child {
+    border-right: none;
+  }
+
+  .entry {
+    margin-bottom: 40px;
+  }
+
+  .entry-type {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .entry-body {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .entry-body.yellow { color: var(--accent-yellow); }
+  .entry-body.purple { color: var(--accent-purple); }
+  .entry-body.fuchsia { color: var(--accent-fuchsia); }
+  .entry-body.lime { color: var(--accent-lime); }
+  .entry-body.orange { color: var(--accent-orange); }
+
+  .entry-source {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  .entry-img {
+    width: 100%;
+    margin-bottom: 8px;
+    filter: grayscale(20%);
+  }
+
+  .entry-caption {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+
+  blockquote {
+    border-left: 1px solid #bbb;
+    padding-left: 12px;
+    margin: 0;
+  }
+
+  .big {
+    font-family: 'Lora', serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+
+  .stamp {
+    display: inline-block;
+    border: 1px solid var(--ink);
+    padding: 2px 6px;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 24px 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  footer {
+    padding: 16px 32px;
+    font-size: 10px;
+    color: var(--ink);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 1100px) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .col {
+      min-height: auto;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 500px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* --- POST CARDS --- */
+  .post-card {
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 0;
+    transition: opacity 0.15s;
+  }
+
+  .post-card:hover {
+    opacity: 0.6;
+  }
+
+  .post-card-label {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .post-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  .post-card-date {
+    font-size: 10px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .post-card-read {
+    font-size: 10px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* --- MODAL --- */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(20,20,20,0.75);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .modal-overlay.active {
+    display: flex;
+  }
+
+  .modal-content {
+    background: var(--bg);
+    max-width: 580px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 48px 48px 56px;
+    position: relative;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: var(--muted);
+    line-height: 1;
+    font-family: 'Lora', serif;
+  }
+
+  .modal-close:hover { color: var(--ink); }
+
+  .modal-label {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .modal-title {
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 32px;
+  }
+
+  .modal-body {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+  .modal-body p {
+    margin-bottom: 18px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="name">rafasacaan</span>
+</header>
+
+<div class="grid">
+
+  <!-- COL 1 -->
+  <div class="col">
+
+    <div class="entry" style="margin-bottom:40px;">
+      <p style="font-size:13px;line-height:1.7;">Hay algo que me gusta en cómo la tecnología está reemplazando lo que nuestra parte racional puede hacer.</p>
+      <p style="font-size:13px;line-height:1.7;margin-top:10px;">Es que mi atención lentamente se está volcando a las cosas que llevo adentro.</p>
+      <div class="entry-source">* Yo</div>
+    </div>
+
+    <div class="post-card" onclick="openPost('post-escafandra')">
+      <img src="imgs/tuxedo-man.png" class="entry-img" style="margin-bottom:14px;width:55%;">
+      <div class="post-card-label">historia</div>
+      <div class="post-card-title">El Hombre de la Escafandra</div>
+      <div class="post-card-date">24 de mayo de 2026</div>
+      <div class="post-card-read">leer →</div>
+    </div>
+
+  </div>
+
+  <!-- COL 2 -->
+  <div class="col">
+
+    <div class="post-card" onclick="openPost('post-naranjas')">
+      <img src="imgs/naranja.png" class="entry-img" style="margin-bottom:14px;width:60%;">
+      <div class="post-card-label">capítulo 4</div>
+      <div class="post-card-title">Naranjas</div>
+      <div class="post-card-date">24 de mayo de 2026</div>
+      <div class="post-card-read">leer →</div>
+    </div>
+
+  </div>
+
+  <!-- COL 3 -->
+  <div class="col">
+
+    <div class="post-card" onclick="openPost('post-mio')">
+      <div class="post-card-label">preguntas</div>
+      <div class="post-card-title">Qué es mío y qué no es</div>
+      <div class="post-card-date">24 de mayo de 2026</div>
+      <div class="post-card-read">leer →</div>
+    </div>
+
+  </div>
+
+  <!-- COL 4 -->
+  <div class="col">
+
+    <div class="post-card" onclick="openPost('post-cuentagotas')">
+      <div class="post-card-label">historia</div>
+      <div class="post-card-title">A cuentagotas</div>
+      <div class="post-card-date">24 de mayo de 2026</div>
+      <div class="post-card-read">leer →</div>
+    </div>
+
+  </div>
+
+  <!-- COL 5 -->
+  <div class="col"></div>
+
+</div>
+
+<!-- MODAL: A cuentagotas -->
+<div class="modal-overlay" id="post-cuentagotas" onclick="closePost(this)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closePost(document.getElementById('post-cuentagotas'))">×</button>
+    <div class="modal-label">historia</div>
+    <h2 class="modal-title">A cuentagotas</h2>
+    <div class="modal-body">
+      <p>Kumo tenía un frasco de vidrio con una aguja en la punta. Todos los días, antes del desayuno, lo tomaba de la repisa y se sentaba frente al bonsai. Lo miraba primero. Siempre primero miraba.</p>
+      <p>Había días de dieciséis gotas. Días de tres. Un miércoles de marzo le dio treinta y dos seguidas, sin parar, y después se fue a trabajar sin decir nada. Su hija, que vivía en Osaka y lo llamaba los domingos, le preguntó una vez cómo sabía cuántas darle. Kumo se quedó pensando. "Es como preguntar cómo sé cuándo estás triste", dijo. Ella no respondió. Él tampoco agregó nada.</p>
+      <p>El bonsai tenía cincuenta y tres años. Uno más que Kumo. Hubo temporadas en que las hojas se pusieron opacas, casi grises, y el tronco parecía más delgado de lo que debía. Kumo seguía viniendo todas las mañanas. Miraba, contaba, soltaba las gotas. A veces menos que antes. A veces más. Nunca dejó de venir.</p>
+      <p>Sus colegas en la empresa de seguros decían que Kumo era difícil de perturbar. Cuando en 2008 perdieron el veinte por ciento de la cartera en una semana, él escuchó los números, asintió, y fue a buscar un café. Alguien lo siguió para preguntarle si estaba bien. "Muy bien", dijo, y lo decía en serio.</p>
+      <p>No era que no le importara. Era otra cosa. Como si Kumo llevara adentro algo a muy alta presión, pero perfectamente sellado. Algo que no se derramaba. Que elegía cuándo salir, y cuánto.</p>
+      <p>Había días en que le daba una sola gota. La formaba despacio en la punta de la aguja, la sostenía un segundo sobre las raíces, y la soltaba. Después se quedaba mirando. No mucho tiempo. Lo suficiente.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Qué es mío y qué no es -->
+<div class="modal-overlay" id="post-mio" onclick="closePost(this)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closePost(document.getElementById('post-mio'))">×</button>
+    <div class="modal-label">preguntas</div>
+    <h2 class="modal-title">Qué es mío y qué no es</h2>
+    <div class="modal-body">
+      <p>¿Ese tono de voz lo uso yo o lo uso para que no me pregunten?</p>
+      <p>¿Por qué digo "bien" cuando me preguntan cómo estoy?</p>
+      <p>¿La ropa que elijo la elegí yo?</p>
+      <p>¿Cuándo decidí que me gustaban los gatos?</p>
+      <p>¿Desde cuándo me corto el pelo así?</p>
+      <p>¿Desde cuándo camino tan rápido?</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Naranjas -->
+<div class="modal-overlay" id="post-naranjas" onclick="closePost(this)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closePost(document.getElementById('post-naranjas'))">×</button>
+    <div class="modal-label">capítulo 4</div>
+    <h2 class="modal-title">Naranjas</h2>
+    <div class="modal-body">
+      <p>En 1919, el botánico holandés Pieter van Elst publicó un paper de cuatro páginas en el <em>Journal of Tropical Agriculture</em> que fue ignorado durante décadas. Describía una anomalía observada en una plantación en Valencia: los árboles situados en los extremos del campo —los que daban a la vivienda del propietario— producían frutos consistentemente más dulces que los del centro. La diferencia no podía explicarse por el suelo, la luz ni el riego.</p>
+      <p>Van Elst propuso, con la prudencia característica de los científicos de su época, que los árboles <em>respondían a una presencia</em>. No dijo más.</p>
+      <p>Lo que sí se sabe —y esto es biología establecida— es que el naranjo moderno no existe en estado salvaje. <em>Citrus sinensis</em> es un híbrido antiguo, producto de cruces entre el pomelo y la mandarina ocurridos hace más de cuatro mil años en el sur de China. Cada árbol es, en ese sentido, una invención. Una respuesta a un deseo humano que todavía no existía cuando el árbol comenzó a formarse.</p>
+      <p>En los años noventa, investigadores de la Universidad de Murcia documentaron que naranjos sometidos a distintos tipos de música producían frutos con acidez notablemente diferente. El experimento fue reproducido, cuestionado, reproducido de nuevo. Los resultados no cambiaron. No encontraron explicación.</p>
+      <p>Lo más extraño lo anotó una de las investigadoras junior en su diario de campo, nunca publicado: que los árboles parecían reaccionar menos a la música en sí que a si había alguien escuchándola. Cuando el parlante sonaba solo, en el campo vacío, los frutos volvían a ser normales.</p>
+      <p>Hay una hipótesis —todavía sin nombre, todavía sin paper— que sostiene que el naranjo no produce lo que puede. Produce lo que percibe que alguien necesita. Que la dulzura no es un rasgo del fruto sino una respuesta. Que el árbol lleva cuatro mil años aprendiendo a leer.</p>
+      <p>Pero Van Elst dejó una nota al margen, en lápiz, en su único ejemplar del paper: había visto naranjos que dejaban de responder. Árboles que durante años habían dado exactamente lo que se esperaba de ellos —frutos perfectos, uniformes, del tamaño y el dulzor precisos— y que un día simplemente dejaban de crecer. No morían del todo. Producían, pero las naranjas eran mediocres. Insípidas. Como si algo adentro se hubiera cerrado.</p>
+      <p>Los árboles más resplandecientes que Van Elst observó en su vida, anotó, eran los que nadie había tocado en años. Los que habían crecido solos, sin que nadie les pidiera nada. Esos daban una fruta que no se parecía a ninguna otra. Irregular, asimétrica, a veces amarga en un lado y dulce en el otro. Imposible de clasificar. Imposible de pedir.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: El Hombre de la Escafandra -->
+<div class="modal-overlay" id="post-escafandra" onclick="closePost(this)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closePost(document.getElementById('post-escafandra'))">×</button>
+    <div class="modal-label">historia</div>
+    <h2 class="modal-title">El Hombre de la Escafandra</h2>
+    <div class="modal-body">
+      <p>La puerta del Aureole se abre. Entra un hombre con tuxedo y escafandra de bronce. Camina despacio, como si cada paso le hubiera costado tomarlo.</p>
+      <p>Las conversaciones no se detienen. Se aflojan, nomás. Él no mira a nadie. Llega a una mesa al fondo, se sienta, pone las manos sobre el mantel.</p>
+      <p>El mozo se acerca. El hombre señala algo en la carta con un dedo. Solo eso. El mozo se va y vuelve con un soufflé de vainilla. Chico, blanco. Sin nada encima.</p>
+      <p>Abre una escotilla lateral del casco —pequeña, apenas una rendija— y acerca la primera cucharada. Se detiene un segundo antes de comer. Un segundo largo.</p>
+      <p>Come muy despacio. No mira la calle. No mira el salón. Tiene los ojos fijos en el plato como si ahí adentro hubiera algo que el resto no puede ver.</p>
+      <p>Cuando termina, la cuchara queda apoyada con cuidado en el borde. No del todo suelta. El hombre permanece quieto un momento más.</p>
+      <p>Después se para, deja un billete, y sale. La puerta se cierra sola detrás de él. El salón sigue igual. Nadie dice nada porque nadie sabe qué decir.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>hecho a mano por rafasacaan &nbsp;/&nbsp; contacto — <a href="mailto:rafasacaan@gmail.com">rafasacaan@gmail.com</a></span>
+</footer>
+
+<script>
+  function openPost(id) {
+    document.getElementById(id).classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePost(overlay) {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.active').forEach(closePost);
+    }
+  });
+</script>
+</body>
+</html>
